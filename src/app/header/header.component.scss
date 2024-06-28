@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.example-spacer {
+    flex: 1 1 auto;
+    border-radius: 20px;
+}
+mat-toolbar{
+    width: 90%;
+    margin: auto;
+    margin-top: 20px;
+    background-color:#000AF0;
+    color: #F0CE00;
+}
+.icon{
+    width: 100px;
+
+}
+img{
+    width: 250px;
+}

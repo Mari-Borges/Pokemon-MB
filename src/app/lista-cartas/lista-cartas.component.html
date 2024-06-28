@@ -1,1 +1,22 @@
-<p>lista-cartas works!</p>
+<div>
+    <div class="card grid grid-cols-4" elevated>
+        <div *ngFor="let carta of cartas" class="cartas">
+            <mat-card class="example-card" appearance="outlined">
+                <img mat-card-image [src]="carta.images.small" alt="carta">
+                <mat-card-content>
+                    <mat-card-title>{{carta.name}}</mat-card-title>
+                    <mat-card-subtitle>{{carta.supertype}}</mat-card-subtitle>
+                <p>
+                    The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
+                    A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
+                    bred for hunting.
+                </p>
+                </mat-card-content>
+                <mat-card-actions>
+                <button mat-button>LIKE</button>
+                <button mat-button>SHARE</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

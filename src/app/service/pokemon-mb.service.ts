@@ -14,8 +14,8 @@ export class PokemonMBService {
     private http: HttpClient
   ) { }
 
-  cartas(): Observable<ICartas[]> {
-    return this.http.get<ICartas[]>(`${this.api}cards`)
+  cartas(): Observable<any> {
+    return this.http.get<any>(`${this.api}cards`)
   }
   
 }

@@ -10,18 +10,16 @@ import { Observable } from 'rxjs';
 })
 export class ListaCartasComponent {
 
-  cartas!: any;
+  cartas!: any[];
 
   constructor( 
     private service: PokemonMBService
-  ){
-    this.listaCartas();
-  }
+  ){}
 
 
-  listaCartas(){
+  ngOnInit(){
     this.service.cartas().subscribe((res) =>{
-      this.cartas = res
+      this.cartas = res.data
     })
     console.log("Cartas", this.cartas)
 

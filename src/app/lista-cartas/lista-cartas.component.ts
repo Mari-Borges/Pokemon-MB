@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PokemonMBService } from '../service/pokemon-mb.service';
 import { ICartas } from '../models/ICartas';
 import { Observable } from 'rxjs';
+import { MatPaginator } from '@angular/material/paginator';
 
 @Component({
   selector: 'app-lista-cartas',
@@ -11,6 +12,7 @@ import { Observable } from 'rxjs';
 export class ListaCartasComponent {
 
   cartas!: any[];
+  dataSource: any;
 
   constructor( 
     private service: PokemonMBService
@@ -21,8 +23,8 @@ export class ListaCartasComponent {
     this.service.cartas().subscribe((res) =>{
       this.cartas = res.data
     })
+
     console.log("Cartas", this.cartas)
 
   }
-
 }

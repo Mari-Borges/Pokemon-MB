@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -10,13 +10,27 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatCardModule} from '@angular/material/card';
+import {MatSliderModule} from '@angular/material/slider';
+import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {NgxPaginationModule} from 'ngx-pagination';
+import { CriarBaralhoComponent } from './criar-baralho/criar-baralho.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import { CartaComponent } from './criar-baralho/carta/carta.component';
+import { MatDialogModule} from '@angular/material/dialog';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 
 @NgModule({
   declarations: [
     AppComponent,
     ListaCartasComponent,
-    HeaderComponent
+    HeaderComponent,
+    CriarBaralhoComponent,
+    CartaComponent,
   ],
   imports: [
     BrowserModule,
@@ -25,9 +39,20 @@ import {MatCardModule} from '@angular/material/card';
     BrowserAnimationsModule,
     MatToolbarModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatSliderModule,
+    MatProgressBarModule,
+    MatPaginatorModule,
+    NgxPaginationModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatButtonModule,
+    MatDialogModule,
+    MatSnackBarModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA]
+
 })
 export class AppModule { }

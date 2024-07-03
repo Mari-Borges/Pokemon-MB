@@ -1,0 +1,35 @@
+.example-card {
+    max-width: 400px;
+    border-radius: 20px;
+
+}
+  
+.example-card-footer {
+    padding: 16px;
+}
+.cardAdd{
+    width: 20%;
+    position: fixed;
+    top: 200px
+}
+.card{
+    width: 70%;
+    margin-left: 20px;
+    border-radius: 20px;
+
+}
+.cartas{
+    border-radius: 20px;
+    margin: 5%;
+}
+.simb{
+    margin-top: 10px;
+    width: 25px;
+}
+.name{
+    margin-top: 0;
+    width: 10px;
+}
+mat-form-field{
+    margin: 10px;
+}

@@ -1,0 +1,15 @@
+<div class="grid gap-2 grid-cols-2  grid-rows-1">
+    <div class="flex-row items-center justify-center bg-transparent">
+        <img [src]="data.images.small" alt="">
+    </div>
+    <div class="w-full">
+    </div>
+    <div class="btns p-2 flex items-center justify-around col-start-1 col-end-7">
+        <button (click)="addCard()" mat-mini-fab>
+            <mat-icon>add</mat-icon>
+        </button>
+        <button mat-mini-fab mat-dialog-close="">
+            <mat-icon>close</mat-icon>
+        </button>
+    </div>
+</div>

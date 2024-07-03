@@ -1,0 +1,21 @@
+<div class="shadow-2xl">
+    <mat-card class="criar absolute right-16 cardAdd" appearance="outlined">
+        <mat-form-field>
+            <mat-label>Nome: </mat-label>
+            <input matInput>
+        </mat-form-field>
+        <mat-card-content>
+            <h2>{{cont}}</h2>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Novo Baralho</button>
+        </mat-card-actions>
+    </mat-card>   
+</div> 
+<div class="card grid grid-cols-4 shadow-2xl" elevated>
+    <div *ngFor="let carta of cartas" class="cartas">
+        <mat-card (click)="adicionar(carta)" class="example-card" appearance="outlined">
+            <img mat-card-image [src]="carta.images.small" alt="carta" class="">
+        </mat-card>
+    </div>
+</div>

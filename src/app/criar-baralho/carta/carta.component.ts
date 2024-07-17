@@ -7,18 +7,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
   styleUrls: ['./carta.component.scss']
 })
 export class CartaComponent {
-  carta: any
-
-  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<CartaComponent>){
-
-    this.carta = data
-
-    console.log(this.carta)
-      
-  }
-
-  ngOninit(){
-    console.warn(this.data.img)
+  constructor(@Inject(MAT_DIALOG_DATA) public data: any, private dialogRef: MatDialogRef<CartaComponent>)
+  {
+     data      
   }
 
   addCard(){

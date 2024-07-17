@@ -9,13 +9,19 @@ import { ICartas } from '../models/ICartas';
 })
 export class PokemonMBService {
 
-  private api = environment.api
+  private api = environment.api;
+  private mock = "http://localhost:3000/baralhos";
+
+
   constructor(
     private http: HttpClient
   ) { }
 
   cartas(): Observable<any> {
     return this.http.get<any>(`${this.api}cards`)
+  }
+  criarBaralho(baralho: any): Observable<any>{
+    return this.http.post<any>(`${this.mock}`, baralho);
   }
   
 }

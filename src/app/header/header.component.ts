@@ -19,5 +19,7 @@ export class HeaderComponent {
   criarBaralho(){
     this.router.navigate(['criar-baralho'])
   }
-
+  meusBaralhos(){
+    this.router.navigate(['meus-baralhos'])
+  }
 }

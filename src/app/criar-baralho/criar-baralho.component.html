@@ -2,14 +2,16 @@
     <mat-card class="criar absolute right-16 cardAdd" appearance="outlined">
         <mat-form-field>
             <mat-label>Nome: </mat-label>
-            <input matInput>
+            <input [(ngModel)]="nome" matInput>
         </mat-form-field>
         <mat-card-content>
+            <h2>Cartas selecionadas: </h2>
             <h2>{{cont}}</h2>
         </mat-card-content>
         <mat-card-actions>
-            <button mat-button>Novo Baralho</button>
+            <button mat-button (click)="criarBaralho()">Novo Baralho</button>
         </mat-card-actions>
+        <h1>Para criar um novo baralho, vc precisa criar o nome do baralho e selecionar de 24 a 60 cartas</h1>
     </mat-card>   
 </div> 
 <div class="card grid grid-cols-4 shadow-2xl" elevated>

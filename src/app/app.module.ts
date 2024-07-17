@@ -21,7 +21,9 @@ import {MatButtonModule} from '@angular/material/button';
 import { CartaComponent } from './criar-baralho/carta/carta.component';
 import { MatDialogModule} from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-
+import { MeusBaralhosComponent } from './meus-baralhos/meus-baralhos.component';
+import { MinhasCartasComponent } from './meus-baralhos/minhas-cartas/minhas-cartas.component';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -31,6 +33,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     HeaderComponent,
     CriarBaralhoComponent,
     CartaComponent,
+    MeusBaralhosComponent,
+    MinhasCartasComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,7 +52,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatFormFieldModule,
     MatButtonModule,
     MatDialogModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

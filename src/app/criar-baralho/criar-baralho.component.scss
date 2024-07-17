@@ -33,3 +33,22 @@
 mat-form-field{
     margin: 10px;
 }
+mat-card{ 
+   color: rgb(240,206,0);
+   background: rgb(0,10,240,1);
+  // background: linear-gradient(90deg, rgba(240,206,0,1) 0%, rgba(0,10,240,1) 100%);
+}
+button{
+    background-color: rgb(240,206,0);
+    margin: auto;
+}
+h1{
+    font-size: 9px;
+    margin-bottom: 1px;
+}
+mat-card-content{
+    display: flex;
+}
+h2{
+    margin-right: 10px;
+}

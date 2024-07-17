@@ -7,10 +7,11 @@
     border-radius: 20px;
 }
 mat-toolbar{
-    background-color:#000AF0;
-    color: #F0CE00;
+    color: #000af0;
     margin-bottom: 50px;
-}
+    background: rgb(240,206,0);
+ //   background: linear-gradient(90deg, rgba(240,206,0,1) 28%, rgba(0,10,240,1) 62%);
+    }
 .icon{
     width: 100px;
 

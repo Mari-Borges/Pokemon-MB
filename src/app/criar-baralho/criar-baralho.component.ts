@@ -1,11 +1,10 @@
 import { ICartas } from './../models/ICartas';
-import { NgxPaginationModule } from 'ngx-pagination';
 import { Component } from '@angular/core';
 import { PokemonMBService } from '../service/pokemon-mb.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartaComponent } from './carta/carta.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { DIALOG_DATA } from '@angular/cdk/dialog';
+import { IBaralho } from '../models/baralho';
 
 @Component({
   selector: 'app-criar-baralho',
@@ -19,6 +18,8 @@ export class CriarBaralhoComponent {
   cont = 0
   cartasAdd: Array<any> = [];
   test!: ICartas[];
+  baralho: Array<ICartas> = [];
+  nome = '';
 
   constructor( 
     private service: PokemonMBService,
@@ -42,7 +43,6 @@ export class CriarBaralhoComponent {
       if(adicionar){
         const filtroNome = this.cartasAdd.filter(
           (c) => c.name === carta.name,
-          console.log(carta.name)
         );
 
         if(filtroNome.length <= 3){
@@ -55,5 +55,17 @@ export class CriarBaralhoComponent {
         }
       }
     })
+  }
+  criarBaralho(){
+    if(this.nome != ""){
+      let baralho: IBaralho = {
+        nome: this.nome,
+        cards: this.cartas
+      }
+    }else{
+      this._snackBar.open('nome invalido', '',{
+        duration: 5000
+     });
+    }
   }
 }

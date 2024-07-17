@@ -57,13 +57,14 @@ export class CriarBaralhoComponent {
     })
   }
   criarBaralho(){
-    if(this.nome != ""){
+    if((this.cartasAdd.length >= 2 && this.cartasAdd.length <= 5) && (this.nome != "")){
       let baralho: IBaralho = {
         nome: this.nome,
         cards: this.cartas
       }
+      this.service.criarBaralho(baralho).subscribe();
     }else{
-      this._snackBar.open('nome invalido', '',{
+      this._snackBar.open('Dever conter entre 24 e 60 cartas e um nome para o baralho', '',{
         duration: 5000
      });
     }

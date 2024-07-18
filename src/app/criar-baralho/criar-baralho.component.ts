@@ -47,7 +47,8 @@ export class CriarBaralhoComponent {
 
         if(filtroNome.length <= 3){
           this.cartasAdd.push(carta);
-          this.cont = this.cont + 1
+          console.log(carta)
+          this.cont = this.cont + 1;
         }else {
             this._snackBar.open('Você atingiu o limite permitido desse personagem!!', '',{
               duration: 5000
@@ -60,7 +61,7 @@ export class CriarBaralhoComponent {
     if((this.cartasAdd.length >= 2 && this.cartasAdd.length <= 5) && (this.nome != "")){
       let baralho: IBaralho = {
         nome: this.nome,
-        cards: this.cartas
+        cards: this.cartasAdd
       }
       this.service.criarBaralho(baralho).subscribe();
     }else{

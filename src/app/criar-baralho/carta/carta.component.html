@@ -1,6 +1,6 @@
-<div class="grid gap-2 grid-cols-2  grid-rows-1 dialog">
+<div class="grid gap-2 grid-cols-2  grid-rows-1 dialog" [ngClass]="statusClass">
     <div class="flex-row items-center justify-center bg-transparent">
-        <img class="img" [src]="data.images.small" alt="">
+        <img class="img shadow-2xl" [src]="data.images.small" alt="">
     </div>
     <div>
         <div class="header">

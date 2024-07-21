@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { CartaComponent } from './carta/carta.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBaralho } from '../models/baralho';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-criar-baralho',
@@ -36,11 +37,18 @@ export class CriarBaralhoComponent {
   adicionar(carta: any){
     const dialogRef  = this.dialog.open(CartaComponent, {
       width: '500px',
-      data: carta
+      data: carta,
+      panelClass: "myClass",
     });
     dialogRef.afterClosed().subscribe((res) =>{
       let adicionar = res === 'add'
       if(adicionar){
+        Swal.fire({
+          title: "Carta adicionada!!",
+          timer: 2000,
+          icon: "success",
+          showConfirmButton: false,
+        });
         const filtroNome = this.cartasAdd.filter(
           (c) => c.name === carta.name,
         );
@@ -50,9 +58,12 @@ export class CriarBaralhoComponent {
           console.log(carta)
           this.cont = this.cont + 1;
         }else {
-            this._snackBar.open('Você atingiu o limite permitido desse personagem!!', '',{
-              duration: 5000
-           });
+            Swal.fire({
+              title: "Você atingiu o limite de cartas desse personagem",
+              timer: 5000,
+              icon: "error",
+              showConfirmButton: false,
+            })
         }
       }
     })
@@ -65,9 +76,12 @@ export class CriarBaralhoComponent {
       }
       this.service.criarBaralho(baralho).subscribe();
     }else{
-      this._snackBar.open('Dever conter entre 24 e 60 cartas e um nome para o baralho', '',{
-        duration: 5000
-     });
+      Swal.fire({
+        title: "Dever conter entre 24 e 60 cartas e um nome para o baralho",
+        timer: 5000,
+        icon: "error",
+        showConfirmButton: false,
+      })
     }
   }
 }

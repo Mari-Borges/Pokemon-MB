@@ -24,6 +24,7 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { MeusBaralhosComponent } from './meus-baralhos/meus-baralhos.component';
 import { MinhasCartasComponent } from './meus-baralhos/minhas-cartas/minhas-cartas.component';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { FormsModule } from '@angular/forms';
     MatButtonModule,
     MatDialogModule,
     MatSnackBarModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -13,6 +13,7 @@ export class ListaCartasComponent {
 
   cartas!: any[];
   dataSource: any;
+  carregando = false;
 
   constructor( 
     private service: PokemonMBService
@@ -20,7 +21,9 @@ export class ListaCartasComponent {
 
 
   ngOnInit(){
+    this.carregando = true
     this.service.cartas().subscribe((res) =>{
+      this.carregando = false
       this.cartas = res.data
     })
 

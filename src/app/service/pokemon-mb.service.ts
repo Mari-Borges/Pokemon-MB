@@ -23,5 +23,8 @@ export class PokemonMBService {
   criarBaralho(baralho: any): Observable<any>{
     return this.http.post<any>(`${this.mock}`, baralho);
   }
+  MeusBaralhos(): Observable<any>{
+    return this.http.get<any>(`${this.mock}`);
+  }
   
 }

@@ -1,11 +1,13 @@
 import { ICartas } from './../models/ICartas';
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { PokemonMBService } from '../service/pokemon-mb.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CartaComponent } from './carta/carta.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IBaralho } from '../models/baralho';
 import Swal from 'sweetalert2';
+import { MatPaginator } from '@angular/material/paginator';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-criar-baralho',
@@ -13,27 +15,28 @@ import Swal from 'sweetalert2';
   styleUrls: ['./criar-baralho.component.scss']
 })
 export class CriarBaralhoComponent {
+  @ViewChild(MatPaginator) paginator: MatPaginator | undefined;
+
 
   cartas!: any[];
-  dataSource: any;
   cont = 0
   cartasAdd: Array<any> = [];
-  test!: ICartas[];
   baralho: Array<ICartas> = [];
   nome = '';
+  carregando = false
 
   constructor( 
     private service: PokemonMBService,
     private dialog: MatDialog,
-    private _snackBar: MatSnackBar
   ){}
 
   ngOnInit(){
+    this.carregando = true
     this.service.cartas().subscribe((res) =>{
+      this.carregando = false;
       this.cartas = res.data
     })
   }
-
   adicionar(carta: any){
     const dialogRef  = this.dialog.open(CartaComponent, {
       width: '500px',

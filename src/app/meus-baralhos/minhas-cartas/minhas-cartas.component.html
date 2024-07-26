@@ -1,1 +1,18 @@
-<p>minhas-cartas works!</p>
+<div class="titulo">
+    <h1>{{data.nome}}</h1>
+</div>
+<div>
+    <mat-card class="sobre shadow-2xl">
+        <h1 class="titulo">Sobre o seu baralho</h1>
+        <h1>Cartas de Treinamento:  {{treiner}}  </h1>
+        <h1>Cartas Pokemons: {{pokemon}}</h1>
+        <h1>Tipos de Pokemons:</h1>
+    </mat-card>
+</div>
+<div class="card grid grid-cols-4 shadow-2xl" elevated>
+    <div *ngFor="let item of data.cards" class="cartas">
+        <mat-card class="example-card" appearance="outlined">
+            <img mat-card-image [src]="item.images.small" alt="carta" class="">
+        </mat-card>
+    </div>
+</div>

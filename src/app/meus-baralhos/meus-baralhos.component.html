@@ -7,7 +7,9 @@
     <div class="baralho grid grid-cols-4" elevated>
         <div *ngFor="let baralho of baralhos" class="cartas">
             <mat-card class="example-card" appearance="outlined">
-                <img mat-card-image src="../../assets/imgs/images.jpeg" alt="carta">
+                <button (click)="abrirBaralho(baralho)"><img mat-card-image src="../../assets/imgs/images.jpeg" alt="carta"></button>
+            </mat-card>
+            <mat-card class="example-card nome" appearance="outlined">
                 <h1>{{baralho.nome}}</h1>
             </mat-card>
         </div>

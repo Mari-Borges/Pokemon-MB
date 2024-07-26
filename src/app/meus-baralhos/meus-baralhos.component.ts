@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PokemonMBService } from '../service/pokemon-mb.service';
+import { MatDialog } from '@angular/material/dialog';
+import { MinhasCartasComponent } from './minhas-cartas/minhas-cartas.component';
 
 @Component({
   selector: 'app-meus-baralhos',
@@ -12,7 +14,8 @@ export class MeusBaralhosComponent {
   semBaralho = false;
 
   constructor(
-    private service: PokemonMBService
+    private service: PokemonMBService,
+    private dialog: MatDialog,
   ){}
 
 
@@ -27,4 +30,10 @@ export class MeusBaralhosComponent {
     })
   }
 
+  abrirBaralho(carta: any){
+    const dialogRef = this.dialog.open(MinhasCartasComponent, {
+      width: '700px',
+      data: carta,
+    })
+  }
 }

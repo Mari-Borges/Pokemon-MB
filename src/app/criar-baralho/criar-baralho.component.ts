@@ -8,6 +8,7 @@ import { IBaralho } from '../models/baralho';
 import Swal from 'sweetalert2';
 import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-criar-baralho',
@@ -28,6 +29,8 @@ export class CriarBaralhoComponent {
   constructor( 
     private service: PokemonMBService,
     private dialog: MatDialog,
+    private router: Router, 
+
   ){}
 
   ngOnInit(){
@@ -48,7 +51,7 @@ export class CriarBaralhoComponent {
       if(adicionar){
         Swal.fire({
           title: "Carta adicionada!!",
-          timer: 2000,
+          timer: 1000,
           icon: "success",
           showConfirmButton: false,
         });
@@ -72,12 +75,13 @@ export class CriarBaralhoComponent {
     })
   }
   criarBaralho(){
-    if((this.cartasAdd.length >= 2 && this.cartasAdd.length <= 5) && (this.nome != "")){
+    if((this.cartasAdd.length >= 24 && this.cartasAdd.length <= 60) && (this.nome != "")){
       let baralho: IBaralho = {
         nome: this.nome,
         cards: this.cartasAdd
       }
       this.service.criarBaralho(baralho).subscribe();
+      this.router.navigate(['meus-baralhos'])
     }else{
       Swal.fire({
         title: "Dever conter entre 24 e 60 cartas e um nome para o baralho",

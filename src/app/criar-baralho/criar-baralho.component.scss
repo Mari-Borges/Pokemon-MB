@@ -1,8 +1,8 @@
 .example-card {
     max-width: 400px;
     border-radius: 20px;
+    border: none;
 }
-  
 .example-card-footer {
     padding: 16px;
 }
@@ -10,12 +10,14 @@
     width: 25%;
     position: fixed;
     right: 20px;
-    top: 200px
+    top: 140px;
+    border-radius: 20px;
 }
 .card{
     width: 70%;
     margin-left: 20px;
     border-radius: 20px;
+    background: rgb(0,10,240,1);
 }
 .cartas{
     border-radius: 20px;
@@ -61,4 +63,14 @@ h2{
 }
 .gif{
     margin: auto;
+}
+.filtro{
+    margin-bottom: 200px;
+}
+
+.elemen{
+    margin: 10px;
+}
+img:hover{
+    top: 10px;
 }

@@ -8,6 +8,7 @@ export interface ICartas {
                     name: string,
                     supertype:[],
                     subtypes: [],
+                    level: string,
                     hp: string,
                     types: [],
                     evolvesFrom: string,

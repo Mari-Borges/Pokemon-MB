@@ -1,11 +1,26 @@
-<div class="grid gap-2 grid-cols-2  grid-rows-1 dialog" [ngClass]="statusClass">
+<div class="grid gap-2 grid-cols-2  grid-rows-1 dialog">
     <div class="flex-row items-center justify-center bg-transparent">
         <img class="img shadow-2xl" [src]="data.images.small" alt="">
     </div>
-    <div>
+    <div *ngFor="let type of statusClass">
         <div class="header">
             <h3>{{data.name}}</h3>
             <img class="imgsimb" [src]="data.images.symbol">
+        </div>
+        <mat-card class="example-card" appearance="outlined">
+            <mat-card-header>
+              <mat-card-title-group>
+                <span>HP: </span>
+                <h2>{{data.hp}}</h2>
+                <span>Level: </span>
+                <h2>{{data.level}}</h2>
+              </mat-card-title-group>
+            </mat-card-header>
+            <mat-card-content>
+            </mat-card-content>
+          </mat-card>
+        <div>
+            
         </div>
     </div>
     <div class="btns p-2 flex items-center justify-around col-start-1 col-end-7">

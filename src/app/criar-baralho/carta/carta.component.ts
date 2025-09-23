@@ -1,6 +1,8 @@
 import { AnimationStyleMetadata, style } from '@angular/animations';
 import { Component, Inject, OnInit,  } from '@angular/core';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { UrlTree } from '@angular/router';
+import { PokemonMBService } from 'src/app/service/pokemon-mb.service';
 
 @Component({
   selector: 'app-carta',
@@ -9,52 +11,74 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 })
 export class CartaComponent implements OnInit{
 
-  statusClass = ''
+  statusClass!: any[];
+  cartas!: any[];
+  ressistencia!: number;
+
+
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any, 
     private dialogRef: MatDialogRef<CartaComponent>,
+    private service: PokemonMBService
   )
   {
-     data      
+     data;
+     console.log(data)
   }
 
   ngOnInit(){
+    this.detalhes();
+    console.log(this.detalhes())
+    this.converterString();
+  }
+
+  converterString(){
+    for(let i = 0; i < this.data.resistances.length; i++){
+       const resis = parseInt(this.data.resistances[i].value);
+       this.ressistencia = resis;
+    }
+    console.log(this.ressistencia);
+  }
+
+  detalhes(){
     for(let i = 0; i < this.data.types.length; i++){
       const type = this.data.types[i]
       if(type === "Fire") {
-        this.statusClass = "fogo"
+        this.statusClass = ["/assets/imgs/fogo-removebg-preview.png"]
       } 
       if(type === "Grass") {
-        this.statusClass = "planta"
+        this.statusClass = ["/assets/imgs/planta-removebg-preview.png"]
       } 
       if(type === "Darkness") {
-        this.statusClass = "escuridao"
+        this.statusClass = ["/assets/imgs/escuridao-removebg-preview (2).png"]
       } 
       if(type === "Dragon") {
-        this.statusClass = "dragao"
+        this.statusClass = ["/assets/imgs/dragao-removebg-preview.png"]
       } 
       if(type === "Lightning") {
-        this.statusClass = "raio"
+        this.statusClass = ["/assets/imgs/raio-removebg-preview.png"]
       } 
       if(type === "Water") {
-        this.statusClass = "agua"
+        this.statusClass = ["/assets/imgs/agua-removebg-preview.png"]
       } 
       if(type === "Fighting") {
-        this.statusClass = "luta"
+        this.statusClass = ["/assets/imgs/luta-removebg-preview.png"]
       } 
       if(type === "Fairy") {
-        this.statusClass = "fada"
+        this.statusClass = ["/assets/imgs/fada-removebg-preview.png"]
       } 
       if(type === "Metal") {
-        this.statusClass = "metal"
+        this.statusClass = ["/assets/imgs/metal-removebg-preview.png"]
       } 
       if(type === "Psychic") {
-        this.statusClass = "psiquico"
+        this.statusClass = ["/assets/imgs/psiquico-removebg-preview.png"]
       } 
       if(type === "Colorless") {
-        this.statusClass = "incolor"
+        this.statusClass = ["/assets/imgs/incolor-removebg-preview.png"]
       } 
+    console.log(this.statusClass)
    }
+    
   }
 
   addCard(){

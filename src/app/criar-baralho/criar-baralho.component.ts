@@ -25,6 +25,19 @@ export class CriarBaralhoComponent {
   baralho: Array<ICartas> = [];
   nome = '';
   carregando = false
+  filter!: any[] 
+
+  fire!: any[];
+  grass!: any[];
+  darkness!: any[];
+  dragon!: any[];
+  lightning!: any[];
+  water!: any[];
+  fighting!: any[];
+  fairy!: any[];
+  metal!: any[];
+  psychic!: any[];
+  colorless!: any[]
 
   constructor( 
     private service: PokemonMBService,
@@ -34,6 +47,7 @@ export class CriarBaralhoComponent {
   ){}
 
   ngOnInit(){
+  
     this.carregando = true
     this.service.cartas().subscribe((res) =>{
       this.carregando = false;
@@ -42,7 +56,8 @@ export class CriarBaralhoComponent {
   }
   adicionar(carta: any){
     const dialogRef  = this.dialog.open(CartaComponent, {
-      width: '500px',
+      width: '50%',
+      height: '100%',
       data: carta,
       panelClass: "myClass",
     });
@@ -90,5 +105,27 @@ export class CriarBaralhoComponent {
         showConfirmButton: false,
       })
     }
+  }
+  
+  filterBaralho(query: any){
+    this.service.cartas().subscribe((res) =>{
+      this.cartas = res.data
+
+      for(let i = 0; i < this.cartas.length; i++){
+        const type = this.cartas[i].types
+        return type.filter(function (el: any){
+          return el.toLowerCase().indexOf(query.toLowerCase()) > -1;
+        });
+        
+        for(let j = 0; j < type.length; j++){
+          const filter = type[j]
+        //  console.log(filter)
+/*           const fire = filter.filter((element: {type: string}) =>{
+            return element.type === "Fire"
+          })
+          console.log(fire) */
+      }
+    }
+    })
   }
 }
